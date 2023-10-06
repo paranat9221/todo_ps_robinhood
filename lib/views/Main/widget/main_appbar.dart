@@ -10,6 +10,15 @@ class MainAppbar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
+      actions: [
+        Padding(
+          padding: EdgeInsets.only(
+            right: AppPadding.main,
+            top: AppPadding.main,
+          ),
+          child: const CircleAvatar(child: Icon(Icons.person)),
+        )
+      ],
       backgroundColor: Colors.white,
       surfaceTintColor: Colors.white,
       floating: false,
