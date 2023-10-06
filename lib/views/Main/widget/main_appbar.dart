@@ -10,15 +10,6 @@ class MainAppbar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
-      actions: [
-        Padding(
-          padding: EdgeInsets.only(
-            right: AppPadding.main,
-            top: AppPadding.main,
-          ),
-          child: const CircleAvatar(child: Icon(Icons.person)),
-        )
-      ],
       backgroundColor: Colors.white,
       surfaceTintColor: Colors.white,
       floating: false,
@@ -46,34 +37,44 @@ class _HeaderBg extends StatelessWidget {
       child: SafeArea(
         child: Padding(
           padding: EdgeInsets.all(AppPadding.main),
-          child: Column(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                AppText.mainHeaderTitle,
-                style: Theme.of(context)
-                    .textTheme
-                    .headlineLarge
-                    ?.copyWith(color: Colors.white),
-              ),
-              Text(
-                AppText.mainHeaderSubtitle,
-                style: Theme.of(context)
-                    .textTheme
-                    .labelSmall
-                    ?.copyWith(color: Colors.white),
-              ),
-              Text(
-                AppText.mainHeaderSubtitle2,
-                style: Theme.of(context)
-                    .textTheme
-                    .labelSmall
-                    ?.copyWith(color: Colors.white),
-              ),
-            ],
+            children: [_text(context), _profile()],
           ),
         ),
       ),
+    );
+  }
+
+  Widget _profile() => const CircleAvatar(child: Icon(Icons.person));
+
+  Widget _text(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          AppText.mainHeaderTitle,
+          style: Theme.of(context)
+              .textTheme
+              .headlineLarge
+              ?.copyWith(color: Colors.white),
+        ),
+        Text(
+          AppText.mainHeaderSubtitle,
+          style: Theme.of(context)
+              .textTheme
+              .labelSmall
+              ?.copyWith(color: Colors.white),
+        ),
+        Text(
+          AppText.mainHeaderSubtitle2,
+          style: Theme.of(context)
+              .textTheme
+              .labelSmall
+              ?.copyWith(color: Colors.white),
+        ),
+      ],
     );
   }
 }
