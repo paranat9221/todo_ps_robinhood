@@ -55,13 +55,10 @@ class APIProvider {
       case 403:
       case 404:
       case 409:
-      // case 500:
-      //   throw CustomException(
-      //     title: "${AppTextError.errorDefaultTitle} : ${response.statusCode}",
-      //     message: AppTextError.errorDefaultMessage,
-      //   );
-      // default:
-      //   throw NetworkException();
+      case 500:
+      // throw CustomException();
+      default:
+      // throw DefaultException();
     }
   }
 }
